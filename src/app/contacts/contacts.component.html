@@ -1,0 +1,36 @@
+<div id="container">
+	<header>
+		<div class="user">
+			<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAQGAAAAJDMyMTJiNGIxLTdiNzQtNGFhNi1iZGY4LWZlOTA5MzhjMmU5Mg.jpg">
+		</div>
+
+		<div class="heading-user">
+			<strong>Pardeep Jain</strong>
+			<br/>
+			<small>@PardeepJain_90</small>
+		</div>
+	</header>
+  <form [formGroup]="contactForm">
+    <input class="add-contact" formControlName='email' placeholder="Add Contact" (keyup.enter)="addContact(); ">
+  </form>
+	<ul class="contact-list">
+	  <li *ngFor="let movie of movies">
+	  	
+      <div class="contact-container">
+        <i class="fa fa-user fa-2x contact-icon"></i>
+        <div class="contact-info">
+          <h3 class="heading--name">{{movie?.name || 'User'}}</h3>
+          <div class="contact-item"><i class="fa fa-phone"></i> 647-XXX-XXXX</div>
+        </div>
+        <div style='width:30%'>
+        <button class="contact-action" (click)="Update(movie)">
+          <i class="fa fa-2x" [class.fa-star]="movie?.is_bookmark" [class.fa-star-o]="!movie?.is_bookmark"></i>
+        </button>
+        <button class="contact-action" (click)='delete(movie)'>
+          <i class="fa fa-trash fa-2x"></i>
+        </button>
+        </div>
+      </div>
+	  </li>
+	</ul>
+</div>
