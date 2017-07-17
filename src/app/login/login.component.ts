@@ -80,4 +80,4 @@ export class LoginComponent implements OnInit {
       (data)=>{console.log(data);this.user=null;}
     )
   }
-}
+}  
