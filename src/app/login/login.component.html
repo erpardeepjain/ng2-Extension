@@ -1,0 +1,47 @@
+<div style='text-align: center;'>
+	<share-buttons class="withCount" [url]="'https://github.com/MrPardeep'" [showCount]="true"
+	description='Testing description' title='Testing Title' tags='angular2'>
+	</share-buttons>
+</div>
+<div class="login-container" *ngIf='is_login_email'>
+	<div class="avatar"></div>
+	<div class="form-box">
+	    <form [formGroup]="loginForm">
+	        <input name="user" type="text" placeholder="username" formControlName = 'email'>
+	        <input type="password" placeholder="password" formControlName = 'password'>
+	        <button class="btn btn-info btn-block login" type="button" (click)='loginFunction()'
+	        [disabled]='!loginForm.valid || loader'>
+	        <span class="glyphicon glyphicon-refresh spinning" *ngIf='loader'></span>
+	        	Login
+	        </button>
+	    </form> 
+	</div>
+</div>
+
+<div class='social-media-container' *ngIf='!is_login_email'>
+	<p class='label-login'>CHOOSE AN OPTION BELOW</p>
+	<button class='login-btn' (click)='is_login_email = !is_login_email'>Login in with Email</button>
+	<img src="assets/images/sep-or.png" class='or-sep'>
+	<div class='btn-container'>
+		<button class='login-btn-social google' (click)="signIn('google')">Google</button>
+		<button class='login-btn-social fb' [disabled]='loader' (click)="signIn('facebook')">
+			Facebook
+		</button>
+		<button class='login-btn-social twitter'>Twitter</button>
+	</div>
+	<p class='label-signup'>
+		Not a member ? 
+		<a routerLink='/signup' class='signp'>Signup here </a>
+	</p>
+	<p class='label-signup'>
+		<a routerLink='/'>Go Back to </a>
+	</p>
+</div>
+
+
+<!-- <button class="btn btn-info btn-block login fb" (click)="signIn('facebook')">
+	or using Facebook
+</button>
+<button class="btn btn-info btn-block login google" (click)="signIn('google')">
+	or using Google
+</button> -->

@@ -1,0 +1,30 @@
+<a routerLink='/'>Go Back </a>
+
+<form [formGroup]="articleForm">
+	<input formControlName='title' placeholder="Title">
+	<input formControlName='description' placeholder="description">
+
+	<!-- <img id="logoId" src='' alt='Image Uploading' style="width:200px;height:115px">
+	<input type="text" class="mFormInput" pInputText value="{{branch_logo?.name}}" readonly>
+	<div class="fileValidation" *ngIf="show_file_validation">
+	     {{branch_logo?.name}}
+	</div>
+	<div>
+	<br>
+	    <label class='cursor-pointer' id="photoLabel" for="fileId">Browse </label>
+	    <input type="file" id="fileId" (change)="fileChangeEvent($event)" style="display:none" />
+	</div> -->
+
+	<button (click)='submitArticle()'>Publish Article</button>
+</form>
+
+<table cellpadding="5" cellspacing="10" border="1">
+	<tr *ngFor='let article of articlesList'>
+		<td>{{article?.title}}</td>
+		<!-- <td>{{article?.description}}</td> -->
+		<td>{{article?.duration}}</td>
+		<td>{{article?.publish_date}}</td>
+		<td>{{article?.is_bookmark}}</td>
+		<td>{{article?.does_follow}}</td>
+	</tr>
+</table>

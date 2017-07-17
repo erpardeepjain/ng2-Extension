@@ -1,0 +1,118 @@
+<!-- the header -->
+<header>
+
+    <!-- our main logo -->
+    <a id="logo">
+        <img [src]="userData?.image || 'assets/images/avatar.jpeg'" alt="Logo">
+        <span>{{userData?.username || 'Hello User'}}</span>
+    </a>
+
+    <!-- main navigation links -->
+    <nav>
+        <ul>
+            <li><a routerLink='/login' *ngIf='userData' (click)='logout()'>Logout</a></li>
+            <li><a routerLink='/login' *ngIf='!userData'>Login</a></li>
+            <li><a routerLink='/contacts' *ngIf='userData'>Contacts</a></li>
+            <li><a routerLink='/todo-list'>Todos</a></li>
+            <li><a routerLink='/articles'>Articles</a></li>
+            <li><a routerLink='/signup' *ngIf='!userData'>Sign Up</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<!-- the content -->
+<main>
+
+    <!-- hero content -->
+    <div class="hero">
+        <!-- content for the hero -->
+        <div class="hero-content">
+            <h1 class="hero-title">404 Not Found</h1>
+            <p>The best and most comprehensive website ever.</p>
+
+            <a routerLink='/portfolio'>Learn More</a>
+            <a routerLink='/signup'>Sign Up</a>
+        </div>
+    </div>
+
+    <!-- features section -->
+    <div class="site-section">
+    <div class="site-section-inside">
+
+        <div class="section-header">
+            <h2>Key Features</h2>
+        </div>
+
+        <div class="feature-box">
+            <img src="assets/images/like.png" alt="Easy to Use">
+            <h5>Easy to Use</h5>
+            <p>Just think of how easy this is to use. Toddlers can do it. So can you!</p>
+        </div>
+
+        <div class="feature-box">
+            <img src="assets/images/faces.png" alt="Fun to Use">
+            <h5>Fun to Use</h5>
+            <p>Just think of how easy this is to use. Toddlers can do it. So can you!</p>
+        </div>
+
+        <div class="feature-box">
+            <img src="assets/images/heart.png" alt="Fun to Use">
+            <h5>You'll Love It</h5>
+            <p>Just think of how easy this is to use. Toddlers can do it. So can you!</p>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- testimonials section -->
+    <div class="site-section site-section-secondary">
+    <div class="site-section-inside">
+
+        <div class="section-header">
+            <h2>What the people say</h2>
+        </div>
+
+        <div class="testimonial-box">
+            <div class="testimonial-content">
+                Their service is by far the most influential I've ever seen.
+            </div>
+            <div class="testimonial-author">
+                <img src="assets/images/david.jpg" alt="David East">
+                <h5>David East</h5>
+                <span>King of Firebase</span>
+            </div>
+        </div>
+
+        <div class="testimonial-box">
+            <div class="testimonial-content">
+                Their service is by far the most influential I've ever seen.
+            </div>
+            <div class="testimonial-author">
+                <img src="assets/images/holly.jpg" alt="Holly Lloyd">
+                <h5>Holly Lloyd</h5>
+                <span>Queen of Scotch</span>
+            </div>
+        </div>
+
+        <div class="testimonial-box">
+            <div class="testimonial-content">
+                Their service is by far the most influential I've ever seen.
+            </div>
+            <div class="testimonial-author">
+                <img src="assets/images/brad.jpg" alt="Brad Green">
+                <h5>Brad Green</h5>
+                <span>King of Angular</span>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+</main>
+
+<!-- the footer -->
+<footer>
+    <img [src]="userData?.image || 'assets/images/avatar.jpeg'" alt="Footer Logo">
+    <span>My Website<br>Copyright &copy; 2016-3010 </span>
+</footer>

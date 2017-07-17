@@ -1,0 +1,24 @@
+<div class="login-container">
+	<div id="output"></div>
+	<div class="avatar"></div>
+	<div class="form-box">
+	    <form [formGroup]="registerForm">
+	        <input type="text" placeholder="Username" formControlName='username'>
+	        <input type="text" placeholder="Email" formControlName='email'>
+	        <input type="text" placeholder="Mobile" formControlName='mobile' maxlength="10">
+	        <input type="password" placeholder="Password" formControlName='password'>
+	        <button class="btn btn-info btn-block login" (click)='register()'
+	        [disabled]='!registerForm.valid || loader'>
+	        <span class="glyphicon glyphicon-refresh spinning" *ngIf='loader'></span>
+	        	Register
+	        </button>
+	        <button class="btn btn-info btn-block login fb" (click)="signIn('facebook')">
+	        	or using Facebook
+	        </button>
+	        <button class="btn btn-info btn-block login google" (click)="signIn('google')">
+	        	or using Google
+	        </button>
+	    </form>
+	</div>
+</div>
+<button (click)='logout()'>Logout </button>

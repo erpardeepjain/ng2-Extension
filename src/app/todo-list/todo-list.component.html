@@ -1,0 +1,21 @@
+<a routerLink='/'>Go Back to </a>
+<p>
+  todo-list works!
+</p>
+<!-- <div style="position:relative;">
+  <textarea id="textarea"></textarea>
+</div> -->
+<!-- <input type="text" [mention]="items" triggerChar="@"> -->
+
+<img id="logoId" src='' alt='Image Uploading' style="width:200px;height:115px">
+<input type="text" class="mFormInput" pInputText value="{{branch_logo?.name}}" readonly>
+<div class="fileValidation" *ngIf="show_file_validation">
+     {{branch_logo?.name}}
+</div>
+<div>
+<br>
+    <label class='cursor-pointer' id="photoLabel" for="fileId">Browse </label>
+    <input type="file" id="fileId" (change)="fileChangeEvent($event)" style="display:none" />
+</div>
+
+<button (click)='onSubmitLogo()'>Upload Now</button>
