@@ -20,16 +20,18 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/angular2-toaster/toaster.css",
-        "./assets/js/jquery.mentionable.css"
+        "./assets/js/jquery.mentionable.css",
+        "../node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../node_modules/angular2-social-login/dist/bundles/angular2-social-login.min.js",
-        "./assets/js/jquery.mentionable.js"
+        "./assets/js/jquery.mentionable.js",
+        "../node_modules/froala-editor/js/froala_editor.pkgd.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

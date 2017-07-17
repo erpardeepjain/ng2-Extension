@@ -1,3 +1,5 @@
+import "froala-editor/js/froala_editor.pkgd.min.js";
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy} from '@angular/common';
@@ -10,6 +12,7 @@ import { Angular2SocialLoginModule } from "angular2-social-login";
 import { ShareButtonsModule } from 'ngx-sharebuttons';
 import { ToasterModule } from 'angular2-toaster';
 import { ToasterContainerComponent, ToasterService, ToasterConfig} from 'angular2-toaster'
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { routing } from './app.routes';
 import { AuthGuard } from './app.auth-guard';
@@ -57,7 +60,9 @@ const routes: Routes = [
     routing,
     ToasterModule,
     Angular2SocialLoginModule,   
-    ShareButtonsModule.forRoot()
+    ShareButtonsModule.forRoot(),
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot()
   ],
   providers: [GlobalService, AuthGuard, ToasterService],
   bootstrap: [AppComponent]

@@ -71,4 +71,20 @@ export class SignupComponent implements OnInit {
       (data)=>{console.log(data);this.user=null;}
     )
   }
+  /*For loop for dummy entry into DB */
+  /*country(){
+    const url = this.global_service.base_path + 'customer/country';
+    this.loader = true;
+    for(let i = 50; i < this.dummy.length; i++){
+      this.global_service.PostRequest(url, this.dummy[i])
+        .subscribe(res => {
+          this.loader = false;
+        },
+        err => {
+          this.loader = false;
+          alert(err.json().error);
+          console.log(err);
+        })
+    }
+  }*/
 }

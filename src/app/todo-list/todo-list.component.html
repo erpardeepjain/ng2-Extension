@@ -19,3 +19,11 @@
 </div>
 
 <button (click)='onSubmitLogo()'>Upload Now</button>
+<hr>
+<!-- <hr>
+<div [froalaEditor] [(froalaModel)]="editorContent">Hello, Froala!</div>
+<div [froalaView]="editorContent"></div> -->
+
+<textarea placeholder="Hello textarea" rows="10" cols="100" (keydown)='checkKeyCode($event)' 
+[(ngModel)]='article'></textarea>
+<p *ngFor='let country of countryList'>{{country.name}}</p>

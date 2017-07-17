@@ -11,10 +11,11 @@ declare var $ :any;
 export class TodoListComponent implements OnInit, AfterViewInit {
 	@ViewChild('fileInput') inputEl: any;
   items: string[] = ["Noah", "Liam", "Mason", "Jacob"]
-
+  countryList: Array<any> = [];
   branch_logo: any;
   is_valid_file: boolean;
   show_file_validation: boolean;
+  article: string;
 
   constructor(public global_service: GlobalService) {}
 
@@ -25,6 +26,43 @@ export class TodoListComponent implements OnInit, AfterViewInit {
   	// $("#textarea").mentionable("user_list_url");
   }
 
+  getCountry(name) {
+    // let url = this.global_service.base_path + 'assets/js/countries.json';
+    if(name.length){
+    let url = this.global_service.base_path + 'customer/country/'+ name;
+
+    this.global_service.getRequestDummy(url)
+      .subscribe(res => {
+        console.log(res[0].json);
+        this.countryList = []
+        this.countryList = res[0].json;
+      },
+      err => {
+        console.log(err, "Error here");
+      })
+    }
+  }
+
+  checkKeyCode(event){
+    // console.log(event.which || event.keycode);
+
+    // if((event.which || event.keycode) == (16 || 50 || 64)){
+      /*Tab => 9*/
+      let n = this.article.split(" ");
+      // console.log(event.which || event.keycode, 'Activate', this.article, n[n.length - 1]);
+      if(n[n.length - 1].charAt(0) == '@'){
+         this.getCountry(n[n.length - 1].substr(1));
+         console.log(event.which || event.keycode)
+         if((event.which || event.keycode) == 9){
+           let selectedCountry = this.countryList[0];
+           this.countryList = [];
+           this.countryList.push(selectedCountry);
+         }
+      }
+      else
+        this.countryList = [];
+    // }
+  }
   fileUploading(){
   	console.log('file Uploading started');
   	let inputEl: HTMLInputElement = this.inputEl.nativeElement;

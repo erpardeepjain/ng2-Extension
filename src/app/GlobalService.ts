@@ -96,7 +96,7 @@ export class GlobalService {
                 }
                 else if (res.status === 500) {
                     jsonObj = null;
-                }
+                } 
                 return [{ status: res.status, json: jsonObj }]
             })
             .catch(error => {
