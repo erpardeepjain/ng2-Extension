@@ -25,7 +25,8 @@
         </div>
         <div style='width:30%'>
         <button class="contact-action" (click)="Update(movie)">
-          <i class="fa fa-2x" [class.fa-star]="movie?.is_bookmark" [class.fa-star-o]="!movie?.is_bookmark"></i>
+          <i class="fa fa-2x" [class.fa-star]="movie?.is_bookmark" 
+          [class.fa-star-o]="!movie?.is_bookmark"></i>
         </button>
         <button class="contact-action" (click)='delete(movie)'>
           <i class="fa fa-trash fa-2x"></i>

@@ -80,4 +80,28 @@ export class LoginComponent implements OnInit {
       (data)=>{console.log(data);this.user=null;}
     )
   }
+
+  twitterSignin(){
+    console.log('twitterSignin Called');
+
+    // let url = 'http://twitter.com/oauth/request_token?oauth_callback=http%3A%2F%2Fgoogle.com%2Ftwittercallback&oauth_consumer_key=0KtgyHbnSg62iBEGLrjcoWh5k&oauth_nonce=ea9ec8429b68d6b77cd5600adbbb0456&oauth_signature=F1Li3tvehgcraF8DMJ7OyxO4w9Y&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1318467427&oauth_version=1.0';
+    let url = 'https://api.twitter.com/oauth/request_token';
+    let data = {
+      'oauth_callback':'http%3A%2F%2Fgoogle.com%2Ftwittercallback',
+      'oauth_consumer_key':'0KtgyHbnSg62iBEGLrjcoWh5k',
+      'oauth_nonce':'ea9ec8429b68d6b77cd5600adbbb0456',
+      'oauth_signature':'F1Li3tvehgcraF8DMJ7OyxO4w9Y',
+      'oauth_signature_method': 'HMAC-SHA1',
+      'oauth_timestamp':'1318467427',
+      'oauth_version':'1.0'
+    } 
+
+    this.global_service.PostRequestTwitter(url, {})
+      .subscribe(res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      });
+  }
 }  

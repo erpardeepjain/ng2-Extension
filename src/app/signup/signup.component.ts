@@ -33,6 +33,7 @@ export class SignupComponent implements OnInit {
       image: ['']
   	})
   }
+  
   register(data?){  	
   	console.log("register called with values : ", this.registerForm.value);
 

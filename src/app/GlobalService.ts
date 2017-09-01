@@ -152,6 +152,37 @@ export class GlobalService {
             });
     }
 
+    public PostRequestTwitter(url: string, data: any): any {
+        let headers;
+        let obj = {
+              'oauth_callback':'http%3A%2F%2Fgoogle.com%2Ftwittercallback',
+              'oauth_consumer_key':'0KtgyHbnSg62iBEGLrjcoWh5k',
+              'oauth_nonce':'kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg',
+              'oauth_signature':'tnnArxj06cWHq44gCs1OSKk/jLY=',
+              'oauth_signature_method': 'HMAC-SHA1',
+              'oauth_timestamp':'1318467427',
+              'oauth_version':'1.0'
+        } 
+        headers = new Headers();
+        headers.append("Authorization", 'OAuth oauth_nonce="K7ny27JTpKVsTgdyLdDfmQQWVLERj2zAK5BslRsqyw", oauth_callback="http%3A%2F%2Fmyapp.com%3A3005%2Ftwitter%2Fprocess_callback", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1300228849", oauth_consumer_key="OqEqJeafRSF11jBMStrZz", oauth_signature="Pc%2BMLdv028fxCErFyi8KXFM%2BddU%3D", oauth_version="1.0"');
+
+        this.requestoptions = new RequestOptions({
+            method: RequestMethod.Post,
+            url: url,
+            headers: headers,
+            body: JSON.stringify(data)
+        })
+
+        return this.http.request(new Request(this.requestoptions))
+            .map((res: Response) => {
+                return [{ status: res.status, json: res }]
+            })
+            .catch((error: any) => {
+                console.log(error.text() ? error.text() : error);
+                return Observable.throw(error);
+            });
+    }
+
     public PostRequestUnautorized(url: string, data: any): any {
         let url2: string;
         if (url.includes("?"))

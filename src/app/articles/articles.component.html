@@ -19,12 +19,25 @@
 </form>
 
 <table cellpadding="5" cellspacing="10" border="1">
+	<thead>
+		<tr>
+			<td>Title</td>
+			<td>Duration</td>
+			<td>Publish Date</td>
+			<td>Is Bookmark</td>
+			<td>Does Follow</td>
+			<td>Is Recommended</td>
+			<td>Cover Image</td>
+		</tr>
+	</thead>
 	<tr *ngFor='let article of articlesList'>
 		<td>{{article?.title}}</td>
 		<!-- <td>{{article?.description}}</td> -->
-		<td>{{article?.duration}}</td>
+		<td>{{article?.duration}} min.</td>
 		<td>{{article?.publish_date}}</td>
 		<td>{{article?.is_bookmark}}</td>
 		<td>{{article?.does_follow}}</td>
+		<td>{{article?.is_recommended}}</td>
+		<td>{{article?.cover_image}}</td>
 	</tr>
 </table>

@@ -48,11 +48,33 @@ export class ContactsComponent implements OnInit {
       password: 'password',
       is_bookmark: false
     }
-    this.base_path_service.PostRequestUnautorized(url, data)
+    this.base_path_service.PostRequest(url, data)
       .subscribe(res => {
         console.log(res)
         this.getMovies();
         this.contactForm.reset();
+      },
+      err => {
+        console.log(err, "Error here");
+      })
+  }
+
+  addDummy() {
+    let url = 'http://petrolpumpapp.azurewebsites.net/api/wnt/User/AddUser';
+
+    let data = {
+        "UserId": 0,
+        "Name": "Pardeep Jain",
+        "AspNetUserId": null,
+        "LoginType": 1,
+        "UserRole": 1,
+        "Email": "jain@gmail.com",
+        "Password": "Jain@123",
+        "ConfirmPassword": "jain@123"
+    }
+    this.base_path_service.PostRequestUnautorized(url, data)
+      .subscribe(res => {
+        console.log(res)
       },
       err => {
         console.log(err, "Error here");

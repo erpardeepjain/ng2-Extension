@@ -23,11 +23,14 @@
 	<button class='login-btn' (click)='is_login_email = !is_login_email'>Login in with Email</button>
 	<img src="assets/images/sep-or.png" class='or-sep'>
 	<div class='btn-container'>
-		<button class='login-btn-social google' (click)="signIn('google')">Google</button>
+		<button class='login-btn-social google' [disabled]='loader' (click)="signIn('google')">
+			Google
+		</button>
 		<button class='login-btn-social fb' [disabled]='loader' (click)="signIn('facebook')">
 			Facebook
 		</button>
-		<button class='login-btn-social twitter'>Twitter</button>
+		<button class='login-btn-social twitter' [disabled]='loader' (click)="twitterSignin()">			Twitter
+		</button>
 	</div>
 	<p class='label-signup'>
 		Not a member ? 
@@ -45,3 +48,6 @@
 <button class="btn btn-info btn-block login google" (click)="signIn('google')">
 	or using Google
 </button> -->
+
+
+
